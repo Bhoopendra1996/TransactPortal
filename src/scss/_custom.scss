@@ -1,0 +1,21 @@
+// Here you can add other styles
+
+.scrollable-table-container {
+    width: 100%; // You can adjust this width as needed
+    max-width: 800px; // Example fixed max-width
+    overflow-x: auto; // Enables horizontal scrolling
+  }
+  .sidebar-nav .nav-link.active {
+    color: #ffffff;
+    background: #00aee6;
+}
+.sidebar-nav .nav-link:hover {
+  color: #ffffff; /* Example hover color */
+  background: #00aee6; /* Example hover background color */
+}
+
+.sidebar-nav {
+  --cui-sidebar-nav-link-hover-icon-color: #f3f4f7;
+  --cui-sidebar-nav-link-active-icon-color: #f3f4f7;
+  --cui-sidebar-nav-link-icon-color: #080a0c;
+}
