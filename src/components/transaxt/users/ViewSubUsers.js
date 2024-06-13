@@ -208,10 +208,14 @@ const ViewSubUsers = () => {
 
     const handleInput = (e, record) => {
         const { value } = e.target;
-        setInputValues({
-            ...inputValues,
-            [record.apiId]: value,
-        });
+        const isValidNumber = /^\d*\.?\d*$/.test(value);
+
+        if (isValidNumber) {
+            setInputValues({
+                ...inputValues,
+                [record.apiId]: value,
+            });
+        }
     };
 
     const addAmount = (record) => {

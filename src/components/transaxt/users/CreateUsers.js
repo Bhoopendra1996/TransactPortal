@@ -5,6 +5,7 @@ const CreateUsers = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [loading, setLoading] = useState(false);
+    const [emailError, setEmailError] = useState('');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -67,8 +68,23 @@ const CreateUsers = () => {
         }
     };
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });
-    }
+        const { id, value } = e.target;
+        let newValue = value;
+
+        if (id === 'firstName' || id === 'lastName') {
+            // Allow only alphabets and space
+            newValue = newValue.replace(/[^A-Za-z ]/ig, '');
+        } else if (id === 'mobile') {
+            // Allow only numbers
+            newValue = newValue.replace(/[^0-9]/g, '');
+        } else if (id === 'email') {
+            // Allow for emails only
+            newValue = newValue.replace(/[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}/g, '');
+        }
+
+        setFormData({ ...formData, [id]: newValue });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         createUser();
@@ -143,7 +159,7 @@ const CreateUsers = () => {
                                         type="text"
                                         id="dob"
                                         name='DOB Date'
-                                        placeholder='Enter date of birth'
+                                        placeholder='yyyy-mm-dd'
                                         value={formData.dob}
                                         onChange={(e) => handleChange(e)}
                                     />

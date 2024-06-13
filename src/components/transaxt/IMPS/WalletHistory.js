@@ -124,6 +124,7 @@ function WalletHistory() {
                                         name='FromDate'
                                         id='fromDate'
                                         type='date'
+                                        size='sm'
                                         value={formData.fromDate}
                                         onChange={handleChange}
                                         required
@@ -137,6 +138,7 @@ function WalletHistory() {
                                         name='ToDate'
                                         id='toDate'
                                         type='date'
+                                        size='sm'
                                         value={formData.toDate}
                                         onChange={handleChange}
                                         required
